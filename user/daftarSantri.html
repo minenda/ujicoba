@@ -140,14 +140,9 @@
 										    </tr>
 									    </thead>
 									    <tbody>
-	                                    <?php
-	                                    $no=1;
-	                                    $sql=mysqli_query($conn,"select * from tbl_santri_baru where id_pendaftar='$id_daftar'");
-	                                    while($row=mysqli_fetch_array($sql)){
-	
-	                                    ?>
+	                                    
 										    <tr>
-											    <td><?=$no++;?>
+											    <td>1</td>
 											    <td><img src="../assets/img/pngs/14.png" class="img-sm product-image border" alt="product-img"></td>
 											    <td>Endah Maryana</td>
 											    <td>P</td>
@@ -156,14 +151,14 @@
 											    <td>MIS</td>
 											    <td>MTW</td>
 											    <td>
-											    <a href="?page=Home&ket=bayar&noDaftar=<?=$row['no_daftar'];?>" type="button" class="btn btn-warning mb-1 me-1"><i class="ti-check me-2"></i> Bayar</a>
+											    <a href="" type="button" class="btn btn-warning mb-1 me-1"><i class="ti-check me-2"></i> Bayar</a>
 											  
 											    <a href="" type="button" class="btn btn-success mb-1 me-1"><i class="ti-check me-2"></i>Proses</a>
 											   
 											    <a href="" type="button" class="btn btn-primary mb-1 me-1"><i class="ti-check me-2"></i>Lunas</a>
 											   
 											    </td>
-										    </tr><?php }?>
+										    </tr>
 									    </tbody>
 								    </table>
 							    </div>
