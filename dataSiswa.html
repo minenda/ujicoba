@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Data Siswa</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+
+    body{
+      background:#f5f6fa;
+      font-family:'Segoe UI', sans-serif;
+    }
+
+    /* HEADER */
+    .topbar{
+      background:#0d6efd;
+      color:white;
+      padding:20px 18px;
+      padding-top:40px;
+      border-bottom-left-radius:24px;
+      border-bottom-right-radius:24px;
+      box-shadow:0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .topbar h4{
+      margin:0;
+      font-weight:700;
+    }
+
+    .topbar i{
+      font-size:28px;
+    }
+
+    /* SEARCH */
+    .search-box{
+      background:#f1f3f7;
+      border-radius:18px;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      margin-top:20px;
+    }
+
+    .search-box input{
+      border:none;
+      background:transparent;
+      width:100%;
+      outline:none;
+      font-size:16px;
+      margin-left:10px;
+    }
+
+    /* FILTER */
+    .filter-scroll{
+      overflow-x:auto;
+      white-space:nowrap;
+      padding-bottom:5px;
+    }
+
+    .filter-scroll::-webkit-scrollbar{
+      display:none;
+    }
+
+    .filter-btn{
+      border:none;
+      border-radius:16px;
+      padding:12px 22px;
+      font-weight:600;
+      margin-right:10px;
+      background:#f1f3f7;
+      color:#333;
+    }
+
+    .filter-primary{
+      background:#e9f2ff;
+      color:#0d6efd;
+    }
+
+    .filter-danger{
+      background:#ffecec;
+      color:#dc3545;
+    }
+
+    /* STUDENT CARD */
+    .student-card{
+      background:white;
+      border-radius:22px;
+      padding:16px;
+      margin-bottom:18px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    .student-img{
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      object-fit:cover;
+    }
+
+    .student-name{
+      font-size:22px;
+      font-weight:700;
+      margin-bottom:2px;
+    }
+
+    .student-course{
+      color:#555;
+      font-size:17px;
+      margin-bottom:2px;
+    }
+
+    .student-phone{
+      color:#777;
+      font-size:16px;
+    }
+
+    .price{
+      font-size:20px;
+      font-weight:700;
+      margin-top:12px;
+    }
+
+    .badge-payment{
+      border-radius:14px;
+      padding:10px 18px;
+      font-size:15px;
+      font-weight:700;
+      display:inline-block;
+      min-width:120px;
+      text-align:center;
+    }
+
+    .badge-unpaid{
+      background:#ffe9e9;
+      color:#dc3545;
+    }
+
+    .badge-paid{
+      background:#e6f8ec;
+      color:#1ca64c;
+    }
+
+    @media(max-width:576px){
+
+      .student-name{
+        font-size:18px;
+      }
+
+      .student-course,
+      .student-phone{
+        font-size:14px;
+      }
+
+      .price{
+        font-size:17px;
+      }
+
+      .badge-payment{
+        font-size:13px;
+        min-width:100px;
+        padding:8px 14px;
+      }
+
+      .student-img{
+        width:60px;
+        height:60px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="topbar">
+
+    <div class="d-flex justify-content-between align-items-center">
+
+      <div class="d-flex align-items-center">
+        <i class="bi bi-arrow-left me-3"></i>
+        <h4>Data Siswa</h4>
+      </div>
+
+      <div>
+        <i class="bi bi-plus-lg me-3"></i>
+        <i class="bi bi-three-dots-vertical"></i>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="container py-4">
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <i class="bi bi-search text-muted fs-4"></i>
+
+      <input type="text"
+             placeholder="Cari nama siswa / no. WA / kelas">
+    </div>
+
+    <!-- FILTER -->
+    <div class="filter-scroll mt-4">
+
+      <button class="filter-btn filter-primary">
+        Semua
+      </button>
+
+      <button class="filter-btn filter-danger">
+        Belum Bayar
+      </button>
+
+      <button class="filter-btn">
+        Lunas
+      </button>
+
+      <button class="filter-btn">
+        Aktif
+      </button>
+
+    </div>
+
+    <!-- STUDENT LIST -->
+    <div class="mt-4">
+
+      <!-- ITEM -->
+      <div class="student-card">
+
+        <div class="d-flex">
+
+          <img src="https://randomuser.me/api/portraits/boys/1.jpg"
+               class="student-img me-3">
+
+          <div class="flex-grow-1">
+
+            <div class="d-flex justify-content-between">
+
+              <div>
+                <div class="student-name">
+                  Ahmad Syarif
+                </div>
+
+                <div class="student-course">
+                  English for Kids - Level 1
+                </div>
+
+                <div class="student-phone">
+                  WA: 0812-1234-5678
+                </div>
+              </div>
+
+              <div class="text-end">
+                <div class="badge-payment badge-unpaid">
+                  Belum Bayar
+                </div>
+
+                <div class="price">
+                  Rp300.000
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ITEM -->
+      <div class="student-card">
+
+        <div class="d-flex">
+
+          <img src="https://randomuser.me/api/portraits/women/2.jpg"
+               class="student-img me-3">
+
+          <div class="flex-grow-1">
+
+            <div class="d-flex justify-content-between">
+
+              <div>
+                <div class="student-name">
+                  Aisyah Putri
+                </div>
+
+                <div class="student-course">
+                  Bimbel SD Kelas 5
+                </div>
+
+                <div class="student-phone">
+                  WA: 0813-2345-6789
+                </div>
+              </div>
+
+              <div class="text-end">
+                <div class="badge-payment badge-unpaid">
+                  Belum Bayar
+                </div>
+
+                <div class="price">
+                  Rp250.000
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ITEM -->
+      <div class="student-card">
+
+        <div class="d-flex">
+
+          <img src="https://randomuser.me/api/portraits/boys/3.jpg"
+               class="student-img me-3">
+
+          <div class="flex-grow-1">
+
+            <div class="d-flex justify-content-between">
+
+              <div>
+                <div class="student-name">
+                  Raka Maulana
+                </div>
+
+                <div class="student-course">
+                  English for Teens
+                </div>
+
+                <div class="student-phone">
+                  WA: 0812-3456-7890
+                </div>
+              </div>
+
+              <div class="text-end">
+                <div class="badge-payment badge-paid">
+                  Lunas
+                </div>
+
+                <div class="price">
+                  Rp300.000
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ITEM -->
+      <div class="student-card">
+
+        <div class="d-flex">
+
+          <img src="https://randomuser.me/api/portraits/women/4.jpg"
+               class="student-img me-3">
+
+          <div class="flex-grow-1">
+
+            <div class="d-flex justify-content-between">
+
+              <div>
+                <div class="student-name">
+                  Nazwa Aulia
+                </div>
+
+                <div class="student-course">
+                  Bimbel SMP Kelas 8
+                </div>
+
+                <div class="student-phone">
+                  WA: 0813-4567-8901
+                </div>
+              </div>
+
+              <div class="text-end">
+                <div class="badge-payment badge-unpaid">
+                  Belum Bayar
+                </div>
+
+                <div class="price">
+                  Rp300.000
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ITEM -->
+      <div class="student-card">
+
+        <div class="d-flex">
+
+          <img src="https://randomuser.me/api/portraits/boys/5.jpg"
+               class="student-img me-3">
+
+          <div class="flex-grow-1">
+
+            <div class="d-flex justify-content-between">
+
+              <div>
+                <div class="student-name">
+                  Daffa Pratama
+                </div>
+
+                <div class="student-course">
+                  English for Kids - Level 2
+                </div>
+
+                <div class="student-phone">
+                  WA: 0812-5678-9012
+                </div>
+              </div>
+
+              <div class="text-end">
+                <div class="badge-payment badge-paid">
+                  Lunas
+                </div>
+
+                <div class="price">
+                  Rp300.000
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
